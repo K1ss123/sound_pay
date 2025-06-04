@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>Звук на весь екран</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      display: flex; justify-content: center; align-items: center;
+      background: #222;
+    }
+    button {
+      width: 100vw;
+      height: 100vh;
+      font-size: 5rem;
+      background: #4c5baf;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #5345a0;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="playSoundBtn">🔊</button>
+
+  <audio id="myAudio" src="sound.mp3" preload="auto"></audio>
+
+  <script>
+    const btn = document.getElementById('playSoundBtn');
+    const audio = document.getElementById('myAudio');
+
+    btn.addEventListener('click', () => {
+      audio.play().catch(e => console.log('Помилка відтворення:', e));
+    });
+  </script>
+
+</body>
+</html>
